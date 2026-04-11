@@ -5,7 +5,7 @@ let toggleCheck = document.getElementById('toggleCheck');
 let statusType = document.getElementById('status');
 let timeRemaining = document.getElementById('timeRemaining');
 let title = document.getElementById('title');
-description.value = `Lorem ipsum dolor sit amet consectetur adipisicing elit.`;
+description.value = `You need to do you HNG Stage Zero task as soon as possible.`;
 
 editBtn.addEventListener(`click`, () => {
     if (editBtn.textContent == `Edit`) {
