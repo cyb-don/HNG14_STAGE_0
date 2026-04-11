@@ -42,32 +42,31 @@ setInterval(function () {
     const now = new Date();
     const diff = dueDate - now;
 
+    if (diff < 0) {
+        let overdueTime = Math.abs(diff);
 
-    if (Math.sign(diff) === -1) {
-        let overdueTime = (diff * (-1));
-        if (overdueTime > 86400000) {
-            let numberOfDaysOver = Math.floor(overdueTime / 86400000);
-            timeRemaining.textContent = `Overdue by ${numberOfDaysOver} days`;
+        if (overdueTime < 3600000) {
+            let minutes = Math.floor(overdueTime / 60000);
+            timeRemaining.textContent = `Overdue by ${minutes} minutes`;
         } else if (overdueTime < 86400000) {
-            let hoursOver = Math.floor(overdueTime / 3600000);
-            timeRemaining.textContent = `Overdue by ${hoursOver} hours`;
-        } else if (overdueTime < 3600000) {
-            let minutesOver = Math.floor(overdueTime / 60000);
-            timeRemaining.textContent = `Due in ${minutesOver} minutes`;
-            return;
-        };
+            let hours = Math.floor(overdueTime / 3600000);
+            timeRemaining.textContent = `Overdue by ${hours} hours`;
+        } else {
+            let days = Math.floor(overdueTime / 86400000);
+            timeRemaining.textContent = `Overdue by ${days} days`;
+        }
+
     } else {
-         if (diff > 86400000) {
-        let numberOfDays = Math.floor(diff / 86400000);
-        timeRemaining.textContent = `Due in ${numberOfDays} days`;
-    } else if (diff < 86400000) {
-        let hoursRemaining = Math.floor(diff / 3600000);
-        timeRemaining.textContent = `Due in ${hoursRemaining} hours`;
-    } else if (diff < 3600000) {
-        let minutesRemaining = Math.floor(diff / 60000);
-        timeRemaining.textContent = `Due in ${minutesRemaining} minutes`;
-        return;
-    };
+        if (diff < 3600000) {
+            let minutes = Math.floor(diff / 60000);
+            timeRemaining.textContent = `Due in ${minutes} minutes`;
+        } else if (diff < 86400000) {
+            let hours = Math.floor(diff / 3600000);
+            timeRemaining.textContent = `Due in ${hours} hours`;
+        } else {
+            let days = Math.floor(diff / 86400000);
+            timeRemaining.textContent = `Due in ${days} days`;
+        }
     }
 
 }, 2000);
