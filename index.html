@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="card.css">
+</head>
+
+<body id="body">
+    <article class="card" data-testid="test-todo-card">
+        <div class="header">
+            <h3 id="title" data-testid="test-todo-title">Do your HNG14 STAGE 0</h3>
+            <strong id="priority" data-testid="test-todo-priority">High</strong>
+        </div>
+        <textarea style="width: 100%; resize: vertical; min-height: 48px;" id="description" data-testid="test-todo-description" readonly></textarea>
+        <!-- <p id="description" data-testid="test-todo-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam hic
+            excepturi molestias, possimus corporis soluta nam. Doloribus cupiditate consectetur ullam.</p> -->
+        <div id="dateSect">
+            <div id="dueDateSect">
+                <p>DUE DATE</p>
+                <time id="dueDate" datetime="" data-testid="test-todo-due-date">Apr 15, 2025</time>
+            </div>
+            <div id="timeRemainingSect">
+                <p>TIME REMAINING</p>
+                <time id="timeRemaining" datetime="" data-testid="test-todo-time-remaining"></time>
+            </div>
+        </div>
+        <p id="status" data-testid="test-todo-status">Pending</p>
+        <p><input id="toggleCheck" type="checkbox" data-testid="test-todo-complete-toggle">Mark as complete</p>
+        <ul id="todoTags" data-testid="test-todo-tags">
+            <li id="workTag" data-testid="test-todo-tag-work">Work</li>
+            <li id="urgentTag" data-testid="test-todo-tag-urgent">Urgent</li>
+            <li id="HomeTag" data-testid="test-todo-tag-home">Home</li>
+        </ul>
+        <div>
+            <button id="editBtn" data-testid="test-todo-edit-button">Edit</button>
+            <button id="deleteBtn" data-testid="test-todo-delete-button">Delete</button>
+        </div>
+    </article>
+
+
+    <script type="module" src="./todocard.js"></script>
+</body>
+
+</html>
