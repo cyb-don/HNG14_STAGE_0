@@ -12,11 +12,9 @@ editBtn.addEventListener(`click`, () => {
         description.removeAttribute('readonly');
         description.focus();
         editBtn.textContent = `Update`;
-    } else if (editBtn.textContent == `Update`) {
+    } else {
         description.readOnly = true;
         editBtn.textContent = `Edit`;
-    } else {
-
     }
 });
 
@@ -38,7 +36,7 @@ toggleCheck.addEventListener(`change`, () => {
 
 
 setInterval(function () {
-    const dueDate = new Date(`2026-04-14`);
+    const dueDate = new Date(`2026-04-10`);
     const now = new Date();
     const diff = dueDate - now;
 
