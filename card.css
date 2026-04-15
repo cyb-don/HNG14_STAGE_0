@@ -34,91 +34,172 @@ body {
   background: linear-gradient(90deg, #7F77DD, #5DCAA5);
 }
 
-.header {
+form {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 12px;
 }
 
-#title {
+form > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+#editTitle {
   font-size: 15px;
   font-weight: 500;
-  margin: 0;
-  padding: 0;
+  padding: 10px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: system-ui, sans-serif;
   color: #111;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
   flex: 1;
-  min-width: 0;
-  word-break: break-word;
+  min-width: 200px;
 }
 
-#priority {
-  font-size: 11px;
-  font-weight: 500;
-  padding: 3px 10px;
-  border-radius: 20px;
-  white-space: nowrap;
-  flex-shrink: 0;
-  background: #FAECE7;
-  color: red;
-  border: 0.5px solid #F0997B;
-  align-self: flex-start;
+#editTitle:focus {
+  border-color: #7F77DD;
+  box-shadow: 0 2px 8px rgba(127, 119, 221, 0.15);
 }
 
-#description {
-  font-size: 13px;
-  color: #666;
-  line-height: 1.6;
-  margin: 0 0 14px;
-  word-break: break-word;
+#editTitle::placeholder {
+  color: #ccc;
 }
 
-#description {
+#collapsibleSect {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+#editDescription {
   border: 2px solid #6c63ff;
-  border-radius: 16px;
-  padding: 12px 18px;
-  font-size: 1.1rem;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
   background: linear-gradient(135deg, #f8fafc 60%, #e0e7ff 100%);
   color: #22223b;
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
-  box-shadow: 0 2px 12px 0 rgba(108, 99, 255, 0.08);
-  margin-bottom: 1rem;
-  width: 100%;
-  min-height: 48px;
-  max-height: 200px;
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.08);
+  min-height: 80px;
   resize: vertical;
-  overflow-y: auto;
   line-height: 1.5;
   white-space: pre-wrap;
 }
 
-#description:focus {
+#editDescription:focus {
   border-color: #22223b;
-  box-shadow: 0 4px 24px 0 rgba(108, 99, 255, 0.18);
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.18);
   background: linear-gradient(135deg, #e0e7ff 60%, #f8fafc 100%);
+}
+
+#editDescription::placeholder {
+  color: #9999cc;
+}
+
+#expandColToggle {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #f9f9f9;
+  color: #666;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  font-family: system-ui, sans-serif;
+  width: fit-content;
+  align-self: flex-start;
+  margin-left: auto;
+}
+
+#expandColToggle:hover {
+  background: #f0f0f0;
+  border-color: #ccc;
+}
+
+#editDueDate {
+  font-size: 13px;
+  padding: 8px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s;
+  font-family: system-ui, sans-serif;
+}
+
+#editDueDate:focus {
+  border-color: #7F77DD;
+}
+
+#overdueIndicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: transparent;
+  margin-right: 4px;
+}
+
+#overdueIndicator.overdue {
+  background: #E74C3C;
+}
+
+#timeRemaining.overdue {
+  color: #E74C3C;
+  font-weight: 600;
+}
+
+#timeRemaining.completed {
+  color: #27AE60;
+  font-weight: 600;
+}
+
+.card.in-progress {
+  border-left: 4px solid #3498DB;
+}
+
+.card.done {
+  opacity: 0.75;
+}
+
+.card.done #title {
+  color: #7F8C8D;
+}
+
+.card.done #descriptionParagraph {
+  color: #95A5A6;
+}
+
+#timeRemaining {
+  font-size: 13px;
+  font-weight: 500;
+  color: #111;
 }
 
 #dateSect {
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  margin-bottom: 14px;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 #dueDateSect,
 #timeRemainingSect {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 6px;
   flex: 1;
   min-width: 0;
-  background: #f5f5f4;
-  border-radius: 8px;
-  padding: 8px 10px;
 }
 
 #dueDateSect p,
@@ -131,34 +212,87 @@ body {
   margin: 0;
 }
 
-#dueDate,
-#timeRemaining {
-  font-size: 13px;
-  font-weight: 500;
-  color: #111;
-  display: block;
-}
-
-#status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 3px 10px;
-  border-radius: 20px;
-  background: #FAEEDA;
-  color: #854F0B;
-  border: 0.5px solid #EF9F27;
+#statusSect {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin-bottom: 12px;
 }
 
+#statusControl {
+  font-size: 13px;
+  padding: 8px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s;
+  font-family: system-ui, sans-serif;
+}
+
+#statusControl:focus {
+  border-color: #7F77DD;
+}
+
+#prioritySect {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+#priorityIndicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #F0997B;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+}
+
+#priorityIndicator.high {
+  background: #E74C3C;
+}
+
+#priorityIndicator.medium {
+  background: #F39C12;
+}
+
+#priorityIndicator.low {
+  background: #27AE60;
+}
+
+#prioritySelect {
+  font-size: 12px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  background: #f5f5f5;
+  color: #666;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s;
+  font-family: system-ui, sans-serif;
+  font-weight: 500;
+}
+
+#prioritySelect:hover {
+  background: #ebebeb;
+}
+
+#prioritySelect:focus {
+  background: #e0e0e0;
+  color: #333;
+}
 
 p:has(#toggleCheck) {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin: 0 0 14px;
+  margin: 0;
   font-size: 13px;
   color: #666;
 }
@@ -172,47 +306,29 @@ p:has(#toggleCheck) {
   margin: 0;
 }
 
-#todoTags {
+#buttons {
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  padding-top: 12px;
-  margin: 0 0 14px;
-  border-top: 0.5px solid rgba(0,0,0,0.1);
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
 }
 
-#todoTags li {
-  font-size: 11px;
-  font-weight: 500;
-  padding: 3px 10px;
-  border-radius: 20px;
+#editSaveBtnSect,
+#deleteCancelBtnSect {
+  display: flex;
+  gap: 10px;
 }
 
-#workTag {
-  background: #3C3489;
-  color: #fff;
-  border: 0.5px solid #7F77DD;
-  font-weight: bold;
-}
-
-#urgentTag,
-#HomeTag {
-  background: #FAECE7;
-  color: #993C1D;
-  border: 0.5px solid #F0997B;
-}
-
-#editBtn,
-#deleteBtn {
+button[type="button"] {
   font-size: 13px;
   font-weight: 500;
-  padding: 7px 18px;
+  padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.15s;
-  border: 0.5px solid;
+  transition: all 0.15s ease;
+  border: 1px solid;
+  font-family: system-ui, sans-serif;
+  flex: 1;
 }
 
 #editBtn {
@@ -220,55 +336,506 @@ p:has(#toggleCheck) {
   color: #3C3489;
   border-color: #AFA9EC;
 }
-#editBtn:hover { background: #CECBF6; }
+
+#editBtn:hover {
+  background: #CECBF6;
+  border-color: #7F77DD;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(127, 119, 221, 0.1);
+}
+
+#editBtn:active {
+  transform: translateY(0);
+}
+
+#saveBtn {
+  display: none;
+  background: #7F77DD;
+  color: #fff;
+  border-color: #7F77DD;
+}
+
+#saveBtn:hover {
+  background: #6B63B5;
+  border-color: #6B63B5;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(107, 99, 181, 0.2);
+}
+
+#saveBtn:active {
+  transform: translateY(0);
+}
 
 #deleteBtn {
   background: transparent;
   color: #A32D2D;
   border-color: #F09595;
 }
-#deleteBtn:hover { background: #FCEBEB; }
+
+#deleteBtn:hover {
+  background: #FCEBEB;
+  border-color: #E08080;
+  transform: translateY(-1px);
+}
+
+#deleteBtn:active {
+  transform: translateY(0);
+}
+
+#cancelBtn {
+  display: none;
+  background: #f5f5f5;
+  color: #666;
+  border-color: #e0e0e0;
+}
+
+#cancelBtn:hover {
+  background: #ebebeb;
+  border-color: #d0d0d0;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#cancelBtn:active {
+  transform: translateY(0);
+}
 
 
-/* Media Queries */
-@media (max-width: 480px) {
+body {
+  padding: 12px 8px;
+}
+
+.card {
+  max-width: 100%;
+  padding: 1rem 12px;
+}
+
+form {
+  gap: 12px;
+}
+
+form > div:first-child {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+#editTitle {
+  width: 100%;
+  min-width: unset;
+}
+
+#editTitle,
+#editDueDate,
+#statusControl {
+  word-break: break-word;
+  width: 100%;
+}
+
+#editDescription {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-height: 300px;
+  width: 100%;
+}
+
+#dateSect {
+  flex-direction: column;
+  gap: 10px;
+}
+
+#dueDateSect,
+#timeRemainingSect {
+  width: 100%;
+}
+
+#statusSect {
+  flex-direction: column;
+  gap: 12px;
+}
+
+#buttons {
+  flex-direction: column;
+  gap: 10px;
+}
+
+#editSaveBtnSect,
+#deleteCancelBtnSect {
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+#editBtn,
+#saveBtn,
+#deleteBtn,
+#cancelBtn {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 12px;
+}
+
+@media (min-width: 375px) {
+  body {
+    padding: 14px;
+  }
+
   .card {
-    max-width: 100%;
-    border-radius: 10px;
     padding: 1rem;
   }
 
   #editBtn,
-  #deleteBtn {
-    flex: 1;
-    text-align: center;
-  }
-
-  .card > div:last-child {
-    display: flex;
-    gap: 8px;
-    width: 100%;
+  #saveBtn,
+  #deleteBtn,
+  #cancelBtn {
+    font-size: 13px;
   }
 }
 
-/*  Tablet (481px – 768px)  */
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 767px) {
+  body {
+    padding: 16px;
+  }
+
+  .card {
+    max-width: 95%;
+    padding: 1rem 1.25rem;
+  }
+
+  form {
+    gap: 14px;
+  }
+
+  form > div:first-child {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  #editTitle {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  #prioritySect {
+    flex-shrink: 0;
+    width: auto;
+  }
+
+  #prioritySelect {
+    width: auto;
+  }
+
+  #editTitle {
+    font-size: 15px;
+    padding: 10px 12px;
+  }
+
+  #editDescription {
+    font-size: 13px;
+    padding: 10px 12px;
+    min-height: 100px;
+  }
+
+  #dateSect {
+    flex-direction: column;
+  }
+
+  #dueDateSect,
+  #timeRemainingSect {
+    width: 100%;
+  }
+
+  #statusSect {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #buttons {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  #editSaveBtnSect,
+  #deleteCancelBtnSect {
+    flex-direction: row;
+    gap: 8px;
+    flex: 1;
+  }
+
+  #editBtn,
+  #saveBtn,
+  #deleteBtn,
+  #cancelBtn {
+    width: 100%;
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
   body {
     padding: 24px;
   }
 
   .card {
-    max-width: 460px;
+    max-width: 500px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  form {
+    gap: 14px;
+  }
+
+  form > div:first-child {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+
+  #editTitle {
+    flex: 1;
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  #prioritySect {
+    flex-shrink: 0;
+    width: auto;
+    gap: 8px;
+  }
+
+  #prioritySelect {
+    width: auto;
+  }
+
+  #editDescription {
+    font-size: 13px;
+    padding: 12px 14px;
+    min-height: 110px;
+    max-height: 350px;
+    overflow-wrap: break-word;
+  }
+
+  #expandColToggle {
+    align-self: flex-start;
+  }
+
+  #dateSect {
+    flex-direction: row;
+    gap: 14px;
+  }
+
+  #dueDateSect,
+  #timeRemainingSect {
+    flex: 1;
+  }
+
+  #statusSect {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  #statusControl {
+    grid-column: 1;
+  }
+
+  #prioritySect {
+    grid-column: 2;
+  }
+
+  p:has(#toggleCheck) {
+    grid-column: 1 / -1;
+  }
+
+  #buttons {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  #editSaveBtnSect,
+  #deleteCancelBtnSect {
+    flex-direction: row;
+    gap: 10px;
+    flex: 1;
+  }
+
+  #editBtn,
+  #saveBtn,
+  #deleteBtn,
+  #cancelBtn {
+    flex: 1;
+    padding: 10px 14px;
+    font-size: 13px;
   }
 }
 
-/*  Desktop (769px+)  */
-@media (min-width: 769px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
   body {
-    padding: 48px 24px;
+    padding: 40px 24px;
   }
 
   .card {
-    max-width: 480px;
+    max-width: 520px;
+    padding: 1.5rem;
+  }
+
+  form {
+    gap: 16px;
+  }
+
+  form > div:first-child {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+
+  #editTitle {
+    flex: 1;
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+
+  #prioritySect {
+    flex-shrink: 0;
+    width: auto;
+  }
+
+  #prioritySelect {
+    width: auto;
+  }
+
+  #editDescription {
+    font-size: 14px;
+    padding: 14px 16px;
+    min-height: 120px;
+    max-height: 400px;
+  }
+
+  #expandColToggle {
+    align-self: flex-start;
+    padding: 8px 14px;
+  }
+
+  #statusSect {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  #statusControl {
+    grid-column: 1;
+  }
+
+  p:has(#toggleCheck) {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+  }
+
+  #dateSect {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  #dueDateSect,
+  #timeRemainingSect {
+    flex: 1;
+  }
+
+  #dueDateSect p,
+  #timeRemainingSect p {
+    font-size: 11px;
+  }
+
+  #buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  #editSaveBtnSect {
+    grid-column: 1;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  #deleteCancelBtnSect {
+    grid-column: 2;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  #editBtn,
+  #saveBtn,
+  #deleteBtn,
+  #cancelBtn {
+    flex: 1;
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1440px) {
+  body {
+    padding: 48px 32px;
+  }
+
+  .card {
+    max-width: 560px;
+    padding: 1.75rem;
+  }
+
+  form {
+    gap: 18px;
+  }
+
+  form > div:first-child {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  #editTitle {
+    flex: 1;
+    font-size: 17px;
+    padding: 12px 14px;
+  }
+
+  #prioritySect {
+    flex-shrink: 0;
+    width: auto;
+    gap: 8px;
+  }
+
+  #prioritySelect {
+    width: auto;
+  }
+
+  #editDescription {
+    font-size: 14px;
+    padding: 14px 16px;
+    min-height: 130px;
+    max-height: 450px;
+  }
+
+  #statusSect {
+    gap: 16px;
+  }
+
+  #buttons {
+    gap: 14px;
+  }
+
+  #editBtn,
+  #saveBtn,
+  #deleteBtn,
+  #cancelBtn {
+    padding: 12px 18px;
   }
 }
