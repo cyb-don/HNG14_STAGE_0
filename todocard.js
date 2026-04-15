@@ -16,6 +16,7 @@ let statusControl = document.getElementById('statusControl');
 let timeRemaining = document.getElementById('timeRemaining');
 let prioritySelect = document.getElementById(`prioritySelect`);
 let editDueDate = document.getElementById(`editDueDate`);
+editDueDate.readOnly = true;
 let toggleCheck = document.getElementById('toggleCheck');
 
 let previousTitle;
