@@ -24,7 +24,7 @@ let previousPriority;
 let previousDueDate;
 let isExpanded = false;
 
-title.textContent = `HNG STAGE 1 TASK`;
+title.textContent = `HNG STAGE 1A TASK`;
 descriptionParagraph.textContent = `In the bleak midwinter, frosty wind made moan,
 Earth stood hard as iron, water like a stone;
 Snow had fallen`;
