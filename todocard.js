@@ -66,6 +66,7 @@ function updateCardStyling() {
         card.classList.add('in-progress');
     } else if (statusControl.value === 'Done') {
         card.classList.add('done');
+        editBtn.disabled = true;
     }
 }
 
