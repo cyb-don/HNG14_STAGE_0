@@ -60,7 +60,7 @@ form > div:first-child {
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
   flex: 1;
-  min-width: 200px;
+  min-width: 0;
 }
 
 #titleHeader {
@@ -423,11 +423,11 @@ form > div:first-child {
   flex-direction: row;
   align-items: center;
   gap: 10px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 #editTitle {
-  width: 100%;
+  width: auto;
   min-width: unset;
 }
 
