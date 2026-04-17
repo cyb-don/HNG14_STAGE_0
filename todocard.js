@@ -18,6 +18,28 @@ let prioritySelect = document.getElementById(`prioritySelect`);
 let editDueDate = document.getElementById(`editDueDate`);
 let toggleCheck = document.getElementById('toggleCheck');
 
+
+ let titleLabel = document.createElement('label');
+    titleLabel.htmlFor = 'editTitle';
+    titleLabel.style.display = 'block';
+    titleLabel.style.fontSize = '12px';
+    titleLabel.style.fontWeight = '500';
+    titleLabel.style.color = '#999';
+    titleLabel.style.marginBottom = '4px';
+    titleLabel.textContent = 'Title';
+    titleHeader.appendChild(titleLabel);
+    
+    let descLabel = document.createElement('label');
+    descLabel.htmlFor = 'editDescription';
+    descLabel.style.display = 'block';
+    descLabel.fontSize = '12px';
+    descLabel.fontWeight = '500';
+    descLabel.color = '#999';
+    descLabel.marginBottom = '4px';
+    descLabel.marginTop = '12px';
+    descLabel.textContent = 'Description';
+    collapsibleSect.appendChild(descLabel);
+
 let previousTitle;
 let previousDescription;
 let previousPriority;
@@ -75,37 +97,21 @@ editBtn.addEventListener(`click`, () => {
     title.style.display = `none`;
     descriptionParagraph.style.display = `none`;
 
-    let titleLabel = document.createElement('label');
-    titleLabel.htmlFor = 'editTitle';
-    titleLabel.style.display = 'block';
-    titleLabel.style.fontSize = '12px';
-    titleLabel.style.fontWeight = '500';
-    titleLabel.style.color = '#999';
-    titleLabel.style.marginBottom = '4px';
-    titleLabel.textContent = 'Title';
+   
 
     let editTitleInput = document.createElement(`input`);
     editTitleInput.dataset.testid = `test-todo-edit-title-input`;
     editTitleInput.id = `editTitle`;
     editTitleInput.value = previousTitle;
-    titleHeader.appendChild(titleLabel);
     titleHeader.appendChild(editTitleInput);
 
-    let descLabel = document.createElement('label');
-    descLabel.htmlFor = 'editDescription';
-    descLabel.style.display = 'block';
-    descLabel.fontSize = '12px';
-    descLabel.fontWeight = '500';
-    descLabel.color = '#999';
-    descLabel.marginBottom = '4px';
-    descLabel.marginTop = '12px';
-    descLabel.textContent = 'Description';
+    
 
     let editDescriptionInput = document.createElement(`textarea`);
     editDescriptionInput.dataset.testid = `test-todo-edit-description-input`;
     editDescriptionInput.id = `editDescription`;
     editDescriptionInput.value = previousDescription;
-    collapsibleSect.appendChild(descLabel);
+ 
     collapsibleSect.appendChild(editDescriptionInput);
 
     editBtn.style.display = `none`;
