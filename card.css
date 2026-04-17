@@ -63,6 +63,11 @@ form > div:first-child {
   min-width: 200px;
 }
 
+#titleHeader {
+  flex: 1;
+  min-width: 0;
+}
+
 #editTitle:focus {
   border-color: #7F77DD;
   box-shadow: 0 2px 8px rgba(127, 119, 221, 0.15);
