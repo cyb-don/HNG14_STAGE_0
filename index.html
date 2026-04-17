@@ -11,12 +11,11 @@
 <body id="body">
     <article class="card" data-testid="test-todo-card">
 
-
-
         <form action="" data-testid="test-todo-edit-form">
             <div>
                 <div id="titleHeader">
-                    
+                    <label for="title"><b>Title</b></label>
+
                 </div>
                 <div id="prioritySect">
                     <span id="priorityIndicator" data-testid="test-todo-priority-indicator"></span>
@@ -28,9 +27,11 @@
                 </div>
             </div>
             <div id="collapsibleSect" data-testid="test-todo-collapsible-section">
-                
+                <label for="description"><b>Description</b></label>
+
             </div>
-            <button type="button" id="expandColToggle" data-testid="test-todo-expand-toggle" aria-expanded="false" aria-controls="collapsibleSect">Expand</button>
+            <button type="button" id="expandColToggle" data-testid="test-todo-expand-toggle" aria-expanded="false"
+                aria-controls="collapsibleSect">Expand</button>
             <div id="dateSect">
                 <div id="dueDateSect">
                     <p>DUE DATE</p>
@@ -53,8 +54,15 @@
                     <option value="In Progress">In Progress</option>
                     <option value="Done">Done</option>
                 </select>
+            </div>
+            <div id="toggleTagSect">
                 <p><input id="toggleCheck" type="checkbox" data-testid="test-todo-complete-toggle"><label
                         for="toggleCheck" style="margin-left:6px;cursor:pointer;">Mark as complete</label></p>
+                <ul id="todoTags" data-testid="test-todo-tags">
+                    <li id="workTag" data-testid="test-todo-tag-work">Work</li>
+                    <li id="urgentTag" data-testid="test-todo-tag-urgent" style="background-color: rgb(255, 0, 0);">Urgent</li>
+                    <li id="HomeTag" data-testid="test-todo-tag-home">Home</li>
+                </ul>
             </div>
 
             <div id="buttons">
