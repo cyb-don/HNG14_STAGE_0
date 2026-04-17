@@ -19,27 +19,6 @@ let editDueDate = document.getElementById(`editDueDate`);
 let toggleCheck = document.getElementById('toggleCheck');
 
 
-let titleLabel = document.createElement('label');
-titleLabel.htmlFor = 'editTitle';
-titleLabel.style.display = 'block';
-titleLabel.style.fontSize = '12px';
-titleLabel.style.fontWeight = '500';
-titleLabel.style.color = '#999';
-titleLabel.style.marginBottom = '4px';
-titleLabel.textContent = 'Title';
-titleHeader.appendChild(titleLabel);
-let descLabel = document.createElement('label');
-descLabel.htmlFor = 'editDescription';
-descLabel.style.display = 'block';
-descLabel.fontSize = '16px';
-descLabel.fontWeight = '700';
-descLabel.color = '#999';
-descLabel.marginBottom = '4px';
-descLabel.marginTop = '12px';
-descLabel.textContent = 'Description';
-collapsibleSect.appendChild(descLabel);
-
-
 let title = document.createElement('h3');
 title.id = "title";
 title.dataset.testid = "test-todo-title";
