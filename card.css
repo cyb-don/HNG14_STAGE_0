@@ -188,7 +188,6 @@ form > div:first-child {
 
 #dateSect {
   display: flex;
-  flex-direction: row;
   gap: 12px;
   margin-bottom: 12px;
 }
@@ -441,15 +440,10 @@ form > div:first-child {
   width: 100%;
 }
 
-#dateSect {
-  flex-direction: column;
-  gap: 10px;
-}
-
-#dueDateSect,
+/* #dueDateSect,
 #timeRemainingSect {
   width: 100%;
-}
+} */
 
 #statusSect {
   flex-direction: column;
@@ -539,14 +533,10 @@ form > div:first-child {
     min-height: 100px;
   }
 
-  #dateSect {
-    flex-direction: column;
-  }
-
-  #dueDateSect,
+/*  #dueDateSect,
   #timeRemainingSect {
     width: 100%;
-  }
+  } */
 
   #statusSect {
     flex-direction: column;
