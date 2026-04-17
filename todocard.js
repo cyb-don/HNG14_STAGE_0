@@ -41,14 +41,15 @@ collapsibleSect.appendChild(descLabel);
 
 
 let title = document.createElement('h3');
-
+title.id = "title";
+title.dataset.testid = "test-todo-title";
 title.textContent = `HNG STAGE 1A TASK`;
-title.appendChild(title);
-
+titleHeader.appendChild(title);
 let descriptionParagraph = document.createElement('p');
-
+descriptionParagraph.id = "descriptionParagraph";
+descriptionParagraph.dataset.testid = "test-todo-description";
 descriptionParagraph.textContent = `In the bleak midwinter, frosty wind made moan, Earth stood hard as iron, water like a stone;Snow had fallen`;
-descriptionParagraph.appendChild(descriptionParagraph);
+collapsibleSect.appendChild(descriptionParagraph);
 
 let previousTitle;
 let previousDescription;
