@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -14,7 +16,7 @@ body {
 
 .card {
   background: #fff;
-  border: 0.5px solid rgba(0,0,0,0.12);
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
   width: 100%;
@@ -38,10 +40,10 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
- /* gap: 12px; */
+  /* gap: 12px; */
 }
 
-form > div:first-child {
+form>div:first-child {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -241,6 +243,34 @@ form > div:first-child {
   border-color: #7F77DD;
 }
 
+#toggleTagSect {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+  }
+
+#todoTags {
+  display: flex;
+  list-style-type: none;
+  gap: 10px;
+}
+
+#todoTags li {
+  font-size: 13px;
+  border: 1px solid gray;
+  border-radius: 13px;
+  padding: 5px 8px;
+  background-color: #3498DB;
+}
+
+@media(max-width: 430px) {
+  #toggleTagSect {
+    flex-direction: column;
+  }
+
+}
+
 #prioritySect {
   display: flex;
   align-items: center;
@@ -419,7 +449,7 @@ form {
   gap: 12px;
 }
 
-form > div:first-child {
+form>div:first-child {
   flex-direction: row;
   align-items: center;
   gap: 10px;
@@ -508,7 +538,7 @@ form > div:first-child {
     gap: 14px;
   }
 
-  form > div:first-child {
+  form>div:first-child {
     flex-direction: row;
     align-items: center;
     gap: 12px;
@@ -539,7 +569,7 @@ form > div:first-child {
     min-height: 100px;
   }
 
-/*  #dueDateSect,
+  /*  #dueDateSect,
   #timeRemainingSect {
     width: 100%;
   } */
@@ -586,7 +616,7 @@ form > div:first-child {
     gap: 14px;
   }
 
-  form > div:first-child {
+  form>div:first-child {
     flex-direction: row;
     align-items: center;
     gap: 14px;
@@ -685,7 +715,7 @@ form > div:first-child {
     gap: 16px;
   }
 
-  form > div:first-child {
+  form>div:first-child {
     flex-direction: row;
     align-items: center;
     gap: 14px;
@@ -791,7 +821,7 @@ form > div:first-child {
     gap: 18px;
   }
 
-  form > div:first-child {
+  form>div:first-child {
     flex-direction: row;
     align-items: center;
     gap: 16px;
