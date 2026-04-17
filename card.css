@@ -37,7 +37,8 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
+ /* gap: 12px; */
 }
 
 form > div:first-child {
