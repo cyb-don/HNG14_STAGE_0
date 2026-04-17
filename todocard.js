@@ -100,6 +100,7 @@ function updateCardStyling() {
 }
 
 editBtn.addEventListener(`click`, () => {
+    collapsibleSect.style.marginTop = "1rem";
     previousTitle = title.textContent;
     previousDescription = descriptionParagraph.textContent;
     previousPriority = prioritySelect.value;
